@@ -123,7 +123,12 @@ Code Linting and Formatting
 
    If your branch is based on a previous commit, simply merging might trigger overwhelming linting errors, while **you are only expected to resolve ones in the files related to your PR**.
    
-   **Please use ``git rebase`` to rebase your branch to a commit after the immigration to avoid linting the files unrelated to your PR.**
+   Please try:
+   
+   1. ``git rebase main``
+   2. or manually copy the files you changed to a new branch
+   
+   to **only commit the files you really changed** for the CI to lint.
 
 We use pre-commit to help improve code quality. To initialize pre-commit, run:
 
