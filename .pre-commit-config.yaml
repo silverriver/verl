@@ -6,3 +6,13 @@ repos:
         pass_filenames: true
         entry: bash -c 'ruff check --fix --show-fixes --output-format=${RUFF_OUTPUT_FORMAT:-full} "$@"'
       - id: ruff-format
+  - repo: local
+    hooks:
+      - id: ruff-warning
+        name: Ruff Migration Warning
+        entry: |
+          bash -c 'echo -e "\n\033[1;33m[WARNING]\033[0m\n\nWe are immigrating to \033[1mruff\033[0m as the linter and formatter and \033[1mpre-commit\033[0m as the managing tool.\nSee: https://github.com/volcengine/verl/pull/1010\n\nIf your branch is based on a previous commit, simply merging might trigger overwhelming linting errors,\nwhile \033[1myou are only expected to resolve ones in the files related to your PR\033[0m.\n\nPlease \033[1muse \`git rebase\` to rebase your branch to a commit after the immigration\033[0m\nto avoid linting the files unrelated to your PR."'
+        language: system
+        stages: [pre-commit]
+        always_run: true
+        verbose: true
