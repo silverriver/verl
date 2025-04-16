@@ -185,7 +185,7 @@ Contributions from the community are welcome! Please check out our [project road
 > 1. `git rebase main`
 > 2. or manually copy the files you changed to a new branch
 > 
-> to only commit the files you really changed for the CI to lint.
+> to **only commit the files you really changed** for the CI to lint.
 
 We use pre-commit to help improve code quality. To initialize pre-commit, run:
 
